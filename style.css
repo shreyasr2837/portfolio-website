@@ -113,7 +113,7 @@ header{
   align-items:center;
   justify-content:space-between;
 
-  padding:16px 28px;
+  padding:20px 28px;
 
   border-radius:28px;
 
@@ -370,6 +370,25 @@ body.dark-mode .toggle-ball{
 
 }
 
+.cv-btn{
+
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+}
+
+.cv-arrow{
+
+  font-size:13px;
+  
+  font-weight:700;
+
+  transition:0.3s ease;
+
+}
+
 /* ================= MENU ================= */
 
 .cv-menu{
@@ -505,11 +524,7 @@ body.dark-mode .cv-menu{
 
 }
 
-/* =========================================================
-   SPLINE / ANIMATION
-========================================================= */
-
-/* DESKTOP ONLY */
+/* ================= SPLINE BACKGROUND ================= */
 
 .hero-bg{
 
@@ -535,37 +550,6 @@ body.dark-mode .cv-menu{
   filter:
   saturate(1.05)
   contrast(1.02);
-
-}
-
-/* MOBILE + TABLET */
-
-@media screen and (max-width:1024px){
-
-  .hero-bg,
-  .spline-bg,
-  spline-viewer{
-
-    display:none !important;
-  }
-
-  .hero::before{
-
-    content:'';
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    radial-gradient(
-      circle at top right,
-      rgba(47,84,255,0.12),
-      transparent 50%
-    );
-
-    z-index:0;
-  }
 
 }
 
@@ -1111,7 +1095,7 @@ body.dark-mode .socials a{
   position:relative;
 
   padding:
-  120px 6%
+  40px 6%
   140px;
 
   background:var(--bg);
@@ -1344,6 +1328,112 @@ body.dark-mode .skill-card{
 
 }
 
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+  .hero-title{
+    white-space:normal;
+  }
+
+  .metrics-strip{
+    flex-wrap:wrap;
+  }
+
+  .metric-divider{
+    display:none;
+  }
+
+}
+
+@media(max-width:1000px){
+
+  .experience-item{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+  }
+
+}
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .hero{
+
+    padding-top:160px;
+
+  }
+
+  .hero-title{
+
+    font-size:60px;
+    line-height:1;
+
+  }
+
+  .hero-sub{
+
+    font-size:18px;
+    letter-spacing:4px;
+
+  }
+
+  .hero-text{
+
+    font-size:19px;
+
+  }
+
+  .metrics-strip{
+
+    flex-direction:column;
+
+    gap:40px;
+
+  }
+
+  .experience-heading h2{
+
+    font-size:48px;
+
+  }
+
+  .experience-content h3{
+
+    font-size:34px;
+
+  }
+
+  .experience-content li{
+
+    font-size:18px;
+
+  }
+
+  .navbar{
+
+    padding:18px;
+
+  }
+
+  .cv-btn{
+
+    display:none;
+
+  }
+
+}
+
 /* ================= PROJECTS SECTION ================= */
 
 .projects-section{
@@ -1351,7 +1441,7 @@ body.dark-mode .skill-card{
   position:relative;
 
   padding:
-  120px 6%
+  40px 6%
   140px;
 
   background:var(--bg);
@@ -1900,7 +1990,7 @@ body.dark-mode .language-card{
   position:relative;
 
   padding:
-  120px 6%
+  40px 6%
   120px;
 
   background:var(--bg);
@@ -2259,586 +2349,6 @@ body.dark-mode .back-to-top{
 
     font-size:48px;
 
-  }
-
-}
-
-/* =========================================================
-   MOBILE RESPONSIVE DESIGN
-========================================================= */
-
-@media screen and (max-width: 768px){
-
-  /* HIDE DESKTOP CV BUTTON ON MOBILE */
-
-  .cv-wrapper{
-    display:none !important;
-  }
-
-  html,
-  body{
-    overflow-x:hidden;
-  }
-
-  /* ================= NAVBAR ================= */
-
-  .navbar{
-    width:92%;
-    padding:16px 20px;
-    border-radius:24px;
-
-    flex-wrap:wrap;
-    gap:20px;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .logo-wrap{
-    gap:12px;
-  }
-
-  .logo{
-    width:52px;
-    height:52px;
-    font-size:22px;
-  }
-
-  .logo-text h2{
-    font-size:18px;
-  }
-
-  .logo-text p{
-    font-size:10px;
-    letter-spacing:2px;
-  }
-
-  .cv-btn{
-    padding:14px 18px;
-    font-size:14px;
-  }
-
-  /* ================= HERO ================= */
-
-  .hero{
-    min-height:auto;
-    padding:
-    140px 24px
-    80px;
-  }
-
-  .hero-content{
-    width:100%;
-    max-width:100%;
-    z-index:2;
-  }
-
-  .hero-title{
-    font-size:58px;
-    line-height:0.95;
-  }
-
-  .hero-title span{
-    display:block;
-  }
-
-  .hero-sub{
-    font-size:18px;
-    letter-spacing:6px;
-    margin-top:18px;
-  }
-
-  .hero-text{
-    font-size:18px;
-    line-height:1.8;
-    margin-top:30px;
-  }
-
-  /* ================= PROFILE IMAGE ================= */
-
-  .profile-image-wrap{
-    width:140px;
-    height:140px;
-  }
-
-  /* ================= BUTTONS ================= */
-
-  .hero-actions{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:16px;
-  }
-
-  .primary-btn,
-  .secondary-btn{
-    width:100%;
-    justify-content:center;
-  }
-
-  /* ================= SOCIALS ================= */
-
-  .socials{
-    gap:14px;
-    margin-top:40px;
-  }
-
-  .socials a{
-    width:58px;
-    height:58px;
-    font-size:26px;
-  }
-
-  /* ================= EXPERIENCE ================= */
-
-  .experience-section{
-    padding:100px 24px;
-  }
-
-  /* ================= SKILLS ================= */
-
-  .skills-section{
-    padding:100px 24px;
-  }
-
-  .skills-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-
-  /* ================= PROJECTS ================= */
-
-  .projects-section{
-    padding:100px 24px;
-  }
-
-  .projects-carousel{
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding-bottom:10px;
-  }
-
-/* ================= PROJECT CARDS MOBILE ================= */
-
-.projects-carousel{
-
-  gap:18px;
-
-  padding-bottom:10px;
-
-}
-
-.project-card{
-
-  min-width:76%;
-
-  max-width:76%;
-
-  padding:26px 22px;
-
-  border-radius:24px;
-
-  scroll-snap-align:center;
-
-}
-
-.project-card h3{
-
-  font-size:24px;
-
-  line-height:1.3;
-
-  margin-bottom:16px;
-
-}
-
-.project-card p{
-
-  font-size:15px;
-
-  line-height:1.7;
-
-  margin-bottom:20px;
-
-}
-
-.project-card ul{
-
-  gap:8px;
-
-}
-
-.project-card ul li{
-
-  font-size:14px;
-
-  line-height:1.5;
-
-}
-
-.project-link{
-
-  font-size:15px;
-
-  margin-top:18px;
-
-}
-  /* ================= CONTACT ================= */
-
-  .contact-section{
-    padding:100px 24px;
-  }
-
-  .contact-container{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .contact-form{
-    width:100%;
-  }
-
-  input,
-  textarea{
-    width:100%;
-  }
-
-  /* ================= BACK TO TOP ================= */
-
-  .back-to-top{
-    width:56px;
-    height:56px;
-    right:20px;
-    bottom:20px;
-  }
-
-}
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-.mobile-menu-btn{
-  display:none;
-}
-
-.mobile-menu{
-  display:none;
-}
-
-/* ================= MOBILE ================= */
-
-@media screen and (max-width:768px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .nav-right{
-    display:none;
-  }
-
-  .mobile-menu-btn{
-
-    width:52px;
-    height:52px;
-
-    border-radius:14px;
-
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:5px;
-
-    cursor:pointer;
-
-    box-shadow:var(--shadow);
-
-    z-index:1001;
-  }
-
-  .mobile-menu-btn span{
-
-    width:22px;
-    height:2px;
-
-    background:var(--text);
-
-    border-radius:20px;
-
-    transition:0.3s;
-  }
-
-  /* ================= MENU ================= */
-
-  .mobile-menu{
-
-    position:fixed;
-
-    top:100px;
-    left:50%;
-
-    transform:translateX(-50%) translateY(-20px);
-
-    width:90%;
-
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
-    border-radius:24px;
-
-    padding:28px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:22px;
-
-    opacity:0;
-    pointer-events:none;
-
-    transition:0.35s ease;
-
-    box-shadow:var(--shadow);
-
-    z-index:1000;
-  }
-
-  .mobile-menu.active{
-
-    opacity:1;
-    pointer-events:auto;
-
-    transform:translateX(-50%) translateY(0);
-  }
-
-  .mobile-menu a{
-
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-size:18px;
-    font-weight:600;
-
-    transition:0.3s;
-  }
-
-  .mobile-menu a:hover{
-    color:var(--blue);
-  }
-
-  /* ================= MOBILE THEME TOGGLE ================= */
-
-  .mobile-theme-toggle{
-
-    margin-top:10px;
-
-    width:100%;
-
-    padding:16px 18px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:var(--blue);
-
-    color:white;
-
-    font-size:16px;
-    font-weight:600;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    cursor:pointer;
-  }
-
-}
-
-  /* ================= MOBILE CV DROPDOWN ================= */
-
-  .mobile-cv-dropdown{
-
-    width:100%;
-  }
-
-  .mobile-cv-btn{
-
-    width:100%;
-
-    padding:16px 18px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:var(--blue);
-
-    color:white;
-
-    font-size:16px;
-    font-weight:600;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    cursor:pointer;
-  }
-
-  .mobile-cv-menu{
-
-    display:none;
-
-    flex-direction:column;
-
-    gap:10px;
-
-    margin-top:12px;
-  }
-
-  .mobile-cv-menu.active{
-    display:flex;
-  }
-
-  .mobile-cv-menu a{
-
-    padding:14px 16px;
-
-    border-radius:14px;
-
-    background:var(--surface-2);
-
-    color:var(--text);
-
-    text-decoration:none;
-
-    font-weight:500;
-  }
-
-  /* =========================================================
-   MOBILE HERO CV DROPDOWN
-========================================================= */
-
-.mobile-hero-cv{
-  display:none;
-}
-
-@media screen and (max-width:768px){
-
-  .mobile-hero-cv{
-
-    display:block;
-
-    width:100%;
-  }
-
-  .mobile-hero-cv-btn{
-
-    width:100%;
-
-    height:68px;
-
-    border:none;
-
-    border-radius:22px;
-
-    background:var(--blue);
-
-    color:white;
-
-    font-size:18px;
-    font-weight:600;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 26px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 12px 30px rgba(47,84,255,0.25);
-  }
-
-  .mobile-hero-cv-menu{
-
-    display:none;
-
-    flex-direction:column;
-
-    gap:12px;
-
-    margin-top:14px;
-  }
-
-  .mobile-hero-cv-menu.active{
-    display:flex;
-  }
-
-  .mobile-hero-cv-menu a{
-
-    height:58px;
-
-    border-radius:18px;
-
-    background:var(--surface);
-
-    border:1px solid var(--line);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-weight:600;
-
-    box-shadow:var(--shadow);
-  }
-
-}
-
-/* =========================================================
-   MOBILE LANDSCAPE FIX
-========================================================= */
-
-@media screen and (max-height:600px)
-and (orientation:landscape){
-
-  .nav-links,
-  .nav-right{
-
-    display:none !important;
-  }
-
-  .mobile-menu-btn{
-
-    display:flex !important;
-  }
-
-  .navbar{
-
-    width:calc(100% - 28px);
-
-    left:14px;
-    right:14px;
-
-    padding:18px 20px;
   }
 
 }
