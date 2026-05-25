@@ -2304,7 +2304,7 @@ body.dark-mode .back-to-top{
   display:none;
 }
 
-@media screen and (max-width:850px){
+@media screen and (max-width:900px){
 
   .nav-links,
   .nav-right{
