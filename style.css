@@ -2536,11 +2536,71 @@ body.dark-mode .back-to-top{
     padding-bottom:10px;
   }
 
-  .project-card{
-    min-width:88%;
-    scroll-snap-align:center;
-  }
+/* ================= PROJECT CARDS MOBILE ================= */
 
+.project-carousel{
+
+  gap:18px;
+
+  padding-bottom:10px;
+
+}
+
+.project-card{
+
+  min-width:76%;
+
+  max-width:76%;
+
+  padding:26px 22px;
+
+  border-radius:24px;
+
+  scroll-snap-align:center;
+
+}
+
+.project-card h3{
+
+  font-size:24px;
+
+  line-height:1.3;
+
+  margin-bottom:16px;
+
+}
+
+.project-card p{
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  margin-bottom:20px;
+
+}
+
+.project-card ul{
+
+  gap:8px;
+
+}
+
+.project-card ul li{
+
+  font-size:14px;
+
+  line-height:1.5;
+
+}
+
+.project-link{
+
+  font-size:15px;
+
+  margin-top:18px;
+
+}
   /* ================= CERTIFICATES ================= */
 
   .certificate-grid{
