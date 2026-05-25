@@ -236,13 +236,17 @@ contactForm.addEventListener('submit', async (e) => {
 
       formMessage.classList.add('show');
 
+      formMessage.textContent = '';
+
       contactForm.reset();
 
       setTimeout(()=>{
 
         formMessage.classList.remove('show');
 
-      },3000);
+        formMessage.textContent = '';
+
+      },4000);
 
     } else {
 
