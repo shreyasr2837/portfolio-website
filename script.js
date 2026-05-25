@@ -236,8 +236,6 @@ contactForm.addEventListener('submit', async (e) => {
 
       formMessage.classList.add('show');
 
-      formMessage.textContent = '';
-
       contactForm.reset();
 
       setTimeout(()=>{
