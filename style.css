@@ -1080,7 +1080,7 @@ body.dark-mode .socials a{
   position:relative;
 
   padding:
-  40px 6%
+  125px 6%
   140px;
 
   background:var(--bg);
@@ -1360,7 +1360,7 @@ body.dark-mode .skill-card{
   position:relative;
 
   padding:
-  40px 6%
+  125px 6%
   140px;
 
   background:var(--bg);
@@ -1909,7 +1909,7 @@ body.dark-mode .language-card{
   position:relative;
 
   padding:
-  40px 6%
+  125px 6%
   120px;
 
   background:var(--bg);
@@ -1930,7 +1930,7 @@ body.dark-mode .language-card{
 
 .contact-heading{
 
-  margin-bottom:90px;
+  margin-bottom:20px;
 
 }
 
