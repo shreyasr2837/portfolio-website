@@ -266,7 +266,7 @@
       <!-- GITHUB / PLACEHOLDER -->
 
       <a
-        href="#"
+        href="https://github.com/shreyasr2837"
         aria-label="Portfolio"
       >
         ⌘
@@ -1326,9 +1326,40 @@
 
       <form
         class="contact-form"
-        action="https://formspree.io/f/mwvzrejp"
-        method="POST"
+        id="contactForm"
       >
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
+
+        <div class="form-bottom">
+
+          <button type="submit" class="send-btn">
+            Send Message
+          </button>
+
+          <span id="formMessage"></span>
+
+        </div>
+
+      </form>
 
         <!-- Disable captcha -->
 

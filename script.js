@@ -196,3 +196,70 @@ mobileThemeToggle.addEventListener('click',()=>{
   }
 
 });
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+document.getElementById('contactForm');
+
+const formMessage =
+document.getElementById('formMessage');
+
+contactForm.addEventListener('submit', async (e) => {
+
+  e.preventDefault();
+
+  const formData =
+  new FormData(contactForm);
+
+  try{
+
+    const response =
+    await fetch(
+      'https://formspree.io/f/mwvzrejp',
+
+      {
+        method:'POST',
+        body:formData,
+        headers:{
+          'Accept':'application/json'
+        }
+      }
+    );
+
+    if(response.ok){
+
+      formMessage.textContent =
+      'Message sent!';
+
+      formMessage.classList.add('show');
+
+      contactForm.reset();
+
+      setTimeout(()=>{
+
+        formMessage.classList.remove('show');
+
+      },3000);
+
+    } else {
+
+      formMessage.textContent =
+      'Something went wrong.';
+
+      formMessage.classList.add('show');
+
+    }
+
+  } catch(error){
+
+    formMessage.textContent =
+    'Error sending message.';
+
+    formMessage.classList.add('show');
+
+  }
+
+});
