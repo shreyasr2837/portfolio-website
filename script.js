@@ -293,11 +293,15 @@ if(mobileCvBtn){
       mobileCvMenu.classList.contains('active')
     ){
 
-      mobileCvArrow.textContent = '⌃';
+      mobileCvArrow
+      .querySelector('img')
+      .style.transform = 'rotate(0deg)';
 
     } else {
 
-      mobileCvArrow.textContent = '⌄';
+      mobileCvArrow
+      .querySelector('img')
+      .style.transform = 'rotate(180deg)';
 
     }
 
@@ -328,11 +332,15 @@ if(mobileHeroCvBtn){
       mobileHeroCvMenu.classList.contains('active')
     ){
 
-      mobileHeroCvArrow.textContent = '⌃';
+      mobileHeroCvArrow
+      .querySelector('img')
+      .style.transform = 'rotate(0deg)';
 
     } else {
 
-      mobileHeroCvArrow.textContent = '⌄';
+      mobileHeroCvArrow
+      .querySelector('img')
+      .style.transform = 'rotate(180deg)';
 
     }
 
