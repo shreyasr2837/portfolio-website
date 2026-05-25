@@ -339,3 +339,58 @@ if(mobileHeroCvBtn){
   });
 
 }
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileMenuBtn =
+document.getElementById('mobileMenuBtn');
+
+const mobileMenu =
+document.getElementById('mobileMenu');
+
+if(mobileMenuBtn){
+
+  mobileMenuBtn.addEventListener('click',()=>{
+
+    mobileMenu.classList.toggle('active');
+
+  });
+
+}
+
+/* =========================================================
+   MOBILE CV DROPDOWN
+========================================================= */
+
+const mobileCvBtn =
+document.getElementById('mobileCvBtn');
+
+const mobileCvMenu =
+document.getElementById('mobileCvMenu');
+
+const mobileCvArrow =
+document.getElementById('mobileCvArrow');
+
+if(mobileCvBtn){
+
+  mobileCvBtn.addEventListener('click',()=>{
+
+    mobileCvMenu.classList.toggle('active');
+
+    if(
+      mobileCvMenu.classList.contains('active')
+    ){
+
+      mobileCvArrow.textContent='⌃';
+
+    }else{
+
+      mobileCvArrow.textContent='⌄';
+
+    }
+
+  });
+
+}
