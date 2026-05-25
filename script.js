@@ -162,6 +162,7 @@ document.getElementById('mobileMenu');
 mobileMenuBtn.addEventListener('click',()=>{
 
   mobileMenu.classList.toggle('active');
+  mobileMenuBtn.classList.toggle('active');
 
 });
 
@@ -172,7 +173,8 @@ document.querySelectorAll('.mobile-menu a')
 
   link.addEventListener('click',()=>{
 
-    mobileMenu.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  mobileMenuBtn.classList.remove('active');
 
   });
 
