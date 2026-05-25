@@ -300,3 +300,38 @@ if(mobileCvBtn){
   });
 
 }
+
+/* =========================================================
+   MOBILE HERO CV DROPDOWN
+========================================================= */
+
+const mobileHeroCvBtn =
+document.getElementById('mobileHeroCvBtn');
+
+const mobileHeroCvMenu =
+document.getElementById('mobileHeroCvMenu');
+
+const mobileHeroCvArrow =
+document.getElementById('mobileHeroCvArrow');
+
+if(mobileHeroCvBtn){
+
+  mobileHeroCvBtn.addEventListener('click',()=>{
+
+    mobileHeroCvMenu.classList.toggle('active');
+
+    if(
+      mobileHeroCvMenu.classList.contains('active')
+    ){
+
+      mobileHeroCvArrow.textContent = '⌃';
+
+    } else {
+
+      mobileHeroCvArrow.textContent = '⌄';
+
+    }
+
+  });
+
+}
