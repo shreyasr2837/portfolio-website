@@ -2598,3 +2598,153 @@ body.dark-mode .back-to-top{
   }
 
 }
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobile-menu-btn{
+  display:none;
+}
+
+.mobile-menu{
+  display:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media screen and (max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-right{
+    display:none;
+  }
+
+  .mobile-menu-btn{
+
+    width:52px;
+    height:52px;
+
+    border-radius:14px;
+
+    background:var(--surface);
+
+    border:1px solid var(--line);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    z-index:1001;
+  }
+
+  .mobile-menu-btn span{
+
+    width:22px;
+    height:2px;
+
+    background:var(--text);
+
+    border-radius:20px;
+
+    transition:0.3s;
+  }
+
+  /* ================= MENU ================= */
+
+  .mobile-menu{
+
+    position:fixed;
+
+    top:100px;
+    left:50%;
+
+    transform:translateX(-50%) translateY(-20px);
+
+    width:90%;
+
+    background:var(--surface);
+
+    border:1px solid var(--line);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:22px;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.35s ease;
+
+    box-shadow:var(--shadow);
+
+    z-index:1000;
+  }
+
+  .mobile-menu.active{
+
+    opacity:1;
+    pointer-events:auto;
+
+    transform:translateX(-50%) translateY(0);
+  }
+
+  .mobile-menu a{
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-size:18px;
+    font-weight:600;
+
+    transition:0.3s;
+  }
+
+  .mobile-menu a:hover{
+    color:var(--blue);
+  }
+
+  /* ================= MOBILE THEME TOGGLE ================= */
+
+  .mobile-theme-toggle{
+
+    margin-top:10px;
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:var(--blue);
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+  }
+
+}
