@@ -2352,3 +2352,249 @@ body.dark-mode .back-to-top{
   }
 
 }
+
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+========================================================= */
+
+@media screen and (max-width: 768px){
+
+  html,
+  body{
+    overflow-x:hidden;
+  }
+
+  /* ================= NAVBAR ================= */
+
+  .navbar{
+    width:92%;
+    padding:16px 20px;
+    border-radius:24px;
+
+    flex-wrap:wrap;
+    gap:20px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .logo-wrap{
+    gap:12px;
+  }
+
+  .logo{
+    width:52px;
+    height:52px;
+    font-size:22px;
+  }
+
+  .logo-text h2{
+    font-size:18px;
+  }
+
+  .logo-text p{
+    font-size:10px;
+    letter-spacing:2px;
+  }
+
+  .cv-btn{
+    padding:14px 18px;
+    font-size:14px;
+  }
+
+  /* ================= HERO ================= */
+
+  .hero{
+    min-height:auto;
+    padding:
+    140px 24px
+    80px;
+  }
+
+  .hero-content{
+    width:100%;
+    max-width:100%;
+    z-index:2;
+  }
+
+  .hero-title{
+    font-size:58px;
+    line-height:0.95;
+  }
+
+  .hero-title span{
+    display:block;
+  }
+
+  .hero-sub{
+    font-size:18px;
+    letter-spacing:6px;
+    margin-top:18px;
+  }
+
+  .hero-text{
+    font-size:18px;
+    line-height:1.8;
+    margin-top:30px;
+  }
+
+  /* ================= PROFILE IMAGE ================= */
+
+  .profile-image-wrap{
+    width:140px;
+    height:140px;
+  }
+
+  /* ================= BUTTONS ================= */
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  /* ================= SOCIALS ================= */
+
+  .socials{
+    gap:14px;
+    margin-top:40px;
+  }
+
+  .socials a{
+    width:58px;
+    height:58px;
+    font-size:26px;
+  }
+
+  /* ================= STATS ================= */
+
+  .stats-row{
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:60px;
+  }
+
+  .stats-row .stat{
+    width:45%;
+  }
+
+  /* ================= EXPERIENCE ================= */
+
+  .experience-section{
+    padding:100px 24px;
+  }
+
+  .experience-title{
+    font-size:52px;
+    line-height:1.1;
+  }
+
+  .experience-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .experience-left{
+    margin-bottom:20px;
+  }
+
+  .experience-card{
+    padding:32px 24px;
+  }
+
+  /* ================= SKILLS ================= */
+
+  .skills-section{
+    padding:100px 24px;
+  }
+
+  .skills-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .skill-box{
+    padding:28px 24px;
+  }
+
+  /* ================= PROJECTS ================= */
+
+  .projects-section{
+    padding:100px 24px;
+  }
+
+  .project-carousel{
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:10px;
+  }
+
+  .project-card{
+    min-width:88%;
+    scroll-snap-align:center;
+  }
+
+  /* ================= CERTIFICATES ================= */
+
+  .certificate-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* ================= CONTACT ================= */
+
+  .contact-section{
+    padding:100px 24px;
+  }
+
+  .contact-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .contact-form{
+    width:100%;
+  }
+
+  input,
+  textarea{
+    width:100%;
+  }
+
+  /* ================= BACK TO TOP ================= */
+
+  .back-to-top{
+    width:56px;
+    height:56px;
+    right:20px;
+    bottom:20px;
+  }
+
+  /* ================= SPLINE PERFORMANCE ================= */
+
+  spline-viewer{
+    display:none !important;
+  }
+
+  .hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+      circle at top right,
+      rgba(47,84,255,0.12),
+      transparent 50%
+    );
+
+    z-index:0;
+  }
+
+}
