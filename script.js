@@ -102,17 +102,21 @@ document.getElementById('cvToggle');
 const cvDropdown =
 document.querySelector('.cv-dropdown');
 
+if(cvToggle && cvDropdown){
+
 cvToggle.addEventListener('click', () => {
 
   cvDropdown.classList.toggle('active');
 
 });
 
+}
+
 /* CLOSE WHEN CLICK OUTSIDE */
 
 document.addEventListener('click', (e) => {
 
-  if(!cvDropdown.contains(e.target)){
+  if(cvDropdown && !cvDropdown.contains(e.target)){
 
     cvDropdown.classList.remove('active');
 
