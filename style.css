@@ -2781,7 +2781,7 @@ body.dark-mode .scroll-nav-btn{
   position:fixed;
   top:106px;
   right:34px;
-  width:310px;
+  width:320px;
   background:var(--surface);
   border-radius:28px;
   border:1px solid var(--line);
@@ -2874,7 +2874,7 @@ body.dark-mode .scroll-nav-btn{
   bottom:58px;
   right:0;
   left:0;
-  width:100%;
+  width:110%;
 }
 
 .scroll-cv-dropdown.active .scroll-cv-menu{

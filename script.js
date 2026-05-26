@@ -100,7 +100,7 @@ const cvToggle =
 document.getElementById('cvToggle');
 
 const cvDropdown =
-document.querySelector('.cv-dropdown');
+document.getElementById('navCvDropdown');
 
 if(cvToggle && cvDropdown){
 
