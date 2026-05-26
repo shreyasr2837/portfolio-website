@@ -124,10 +124,19 @@ document.addEventListener('click', (e) => {
 
 });
 
-/* ================= BACK TO TOP ================= */
+/* ================= BACK TO TOP + SCROLL NAV ================= */
 
 const backToTop =
 document.querySelector('.back-to-top');
+
+const scrollNavBtn =
+document.getElementById('scrollNavBtn');
+
+const scrollNavPanel =
+document.getElementById('scrollNavPanel');
+
+const headerEl =
+document.querySelector('header');
 
 window.addEventListener('scroll', () => {
 
@@ -137,17 +146,149 @@ window.addEventListener('scroll', () => {
   const triggerPoint =
   experienceSection.offsetTop - 200;
 
-  if(window.scrollY >= triggerPoint){
+  const isTriggered =
+  window.scrollY >= triggerPoint;
 
+  /* Back to top */
+  if(isTriggered){
     backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+
+  /* Scroll nav — desktop only */
+  if(window.innerWidth > 850){
+
+    if(isTriggered){
+
+      headerEl.classList.add('nav-hidden');
+      scrollNavBtn.classList.add('show');
+
+    } else {
+
+      headerEl.classList.remove('nav-hidden');
+      scrollNavBtn.classList.remove('show');
+      scrollNavPanel.classList.remove('active');
+
+    }
 
   } else {
 
-    backToTop.classList.remove('show');
+    /* Ensure header always visible on mobile */
+    headerEl.classList.remove('nav-hidden');
 
   }
 
 });
+
+/* =========================================================
+   SCROLL NAV BUTTON — toggle panel
+========================================================= */
+
+if(scrollNavBtn){
+
+  scrollNavBtn.addEventListener('click', (e) => {
+
+    e.stopPropagation();
+
+    scrollNavPanel.classList.toggle('active');
+
+  });
+
+}
+
+/* Close scroll nav panel when clicking outside */
+
+document.addEventListener('click', (e) => {
+
+  if(
+    scrollNavPanel &&
+    scrollNavPanel.classList.contains('active') &&
+    !scrollNavPanel.contains(e.target) &&
+    !scrollNavBtn.contains(e.target)
+  ){
+
+    scrollNavPanel.classList.remove('active');
+
+  }
+
+});
+
+/* Close scroll nav panel when a nav link is clicked */
+
+document.querySelectorAll('.scroll-nav-links a')
+.forEach(link => {
+
+  link.addEventListener('click', () => {
+
+    scrollNavPanel.classList.remove('active');
+
+  });
+
+});
+
+/* =========================================================
+   SCROLL NAV — CV DROPDOWN (desktop style)
+========================================================= */
+
+const scrollCvDropdown =
+document.getElementById('scrollCvDropdown');
+
+const scrollCvBtn =
+document.getElementById('scrollCvBtn');
+
+if(scrollCvBtn && scrollCvDropdown){
+
+  scrollCvBtn.addEventListener('click', (e) => {
+
+    e.stopPropagation();
+
+    scrollCvDropdown.classList.toggle('active');
+
+  });
+
+}
+
+/* Close scroll CV dropdown when clicking outside */
+document.addEventListener('click', (e) => {
+
+  if(
+    scrollCvDropdown &&
+    !scrollCvDropdown.contains(e.target)
+  ){
+
+    scrollCvDropdown.classList.remove('active');
+
+  }
+
+});
+
+/* =========================================================
+   SCROLL NAV — THEME TOGGLE (desktop style)
+========================================================= */
+
+const scrollThemeToggle =
+document.getElementById('scrollThemeToggle');
+
+if(scrollThemeToggle){
+
+  scrollThemeToggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    if(document.body.classList.contains('dark-mode')){
+
+      localStorage.setItem('theme','dark');
+
+    } else {
+
+      localStorage.setItem('theme','light');
+
+    }
+
+  });
+
+}
 
 /* =========================================================
    MOBILE MENU
@@ -271,43 +412,41 @@ contactForm.addEventListener('submit', async (e) => {
 });
 
 /* =========================================================
-   MOBILE CV DROPDOWN
+   MOBILE MENU — CV DROPDOWN (desktop style)
 ========================================================= */
+
+const mobileCvDropdown =
+document.getElementById('mobileCvDropdown');
 
 const mobileCvBtn =
 document.getElementById('mobileCvBtn');
 
-const mobileCvMenu =
-document.getElementById('mobileCvMenu');
+if(mobileCvBtn && mobileCvDropdown){
 
-const mobileCvArrow =
-document.getElementById('mobileCvArrow');
+  mobileCvBtn.addEventListener('click', (e) => {
 
-if(mobileCvBtn){
+    e.stopPropagation();
 
-  mobileCvBtn.addEventListener('click',()=>{
-
-    mobileCvMenu.classList.toggle('active');
-
-    if(
-      mobileCvMenu.classList.contains('active')
-    ){
-
-      mobileCvArrow
-      .querySelector('img')
-      .style.transform = 'rotate(0deg)';
-
-    } else {
-
-      mobileCvArrow
-      .querySelector('img')
-      .style.transform = 'rotate(180deg)';
-
-    }
+    mobileCvDropdown.classList.toggle('active');
 
   });
 
 }
+
+/* Close when clicking outside */
+
+document.addEventListener('click', (e) => {
+
+  if(
+    mobileCvDropdown &&
+    !mobileCvDropdown.contains(e.target)
+  ){
+
+    mobileCvDropdown.classList.remove('active');
+
+  }
+
+});
 
 /* =========================================================
    MOBILE HERO CV DROPDOWN
