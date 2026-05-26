@@ -1108,6 +1108,100 @@ body.dark-mode .socials a{
 
 }
 
+
+/* ================= EDUCATION SECTION ================= */
+
+.education-section{
+  position:relative;
+  padding:40px 6% 120px;
+  background:var(--bg);
+}
+
+.education-container{
+  width:100%;
+  max-width:1450px;
+  margin:0 auto;
+}
+
+.education-heading{
+  margin-bottom:80px;
+}
+
+.education-heading h2{
+  font-size:clamp(42px,5vw,84px);
+  line-height:1.08;
+  font-weight:300;
+  letter-spacing:-2px;
+}
+
+.education-heading h2 span{
+  color:var(--blue);
+  font-style:italic;
+}
+
+.education-list{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.education-item{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(47,84,255,0.08);
+}
+
+.education-left h3{
+  font-size:54px;
+  line-height:1.1;
+  margin-bottom:12px;
+}
+
+.education-left h4{
+  font-size:28px;
+  font-weight:500;
+  margin-bottom:14px;
+}
+
+.education-left p{
+  font-size:22px;
+  color:var(--blue);
+  font-weight:600;
+}
+
+.education-duration{
+  font-size:54px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+@media(max-width:850px){
+
+  .education-item{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .education-left h3{
+    font-size:34px;
+  }
+
+  .education-left h4{
+    font-size:22px;
+  }
+
+  .education-left p{
+    font-size:18px;
+  }
+
+  .education-duration{
+    font-size:34px;
+  }
+
+}
+
 /* ================= SKILLS SECTION ================= */
 
 .skills-section{
