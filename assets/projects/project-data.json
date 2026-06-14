@@ -1,0 +1,67 @@
+{
+  "hydrofoil": {
+    "title": "Hydrofoil Flow-Control Analysis",
+    "tag": "MSc Dissertation",
+
+    "media": [
+      "assets/projects/hydrofoil/1.jpg",
+      "assets/projects/hydrofoil/2.jpg",
+      "assets/projects/hydrofoil/3.png"
+    ],
+
+    "pdf": "assets/projects/hydrofoil/dissertation.pdf",
+
+    "what": [
+      "Investigated the effect of passive vortex generators on the performance of a NACA 63-618 tidal turbine hydrofoil.",
+      "Conducted CFD simulations in ANSYS Fluent and validated results through wind tunnel testing.",
+      "Designed and tested multiple rectangular and triangular vortex generator configurations."
+    ],
+
+    "how": [
+      "Modelled the hydrofoil and vortex generator configurations in SOLIDWORKS.",
+      "Performed CFD analysis using ANSYS Fluent with the SST k-ω turbulence model.",
+      "Manufactured test models using 3D printing and conducted wind tunnel experiments.",
+      "Analysed lift, drag, flow separation, and stall characteristics across different angles of attack.",
+      "Identified triangular vortex generators as the best-performing configuration, achieving up to 20% improvement in lift performance."
+    ],
+
+    "why": [
+      "To understand how vortex generators can delay flow separation and improve hydrofoil performance.",
+      "To increase lift, reduce drag, and improve the efficiency of tidal turbine blades.",
+      "To compare computational predictions with experimental results and assess the effectiveness of different vortex generator designs."
+    ]
+  },
+
+  "conveyor-system": {
+    "title": "Belt Conveyor System Design",
+    "tag": "Engineering Project",
+
+    "media": [
+      "assets/projects/conveyor-system/1.jpg",
+      "assets/projects/conveyor-system/2.jpg",
+      "assets/projects/conveyor-system/3.jpg",
+      "assets/projects/conveyor-system/4.mp4"
+    ],
+
+    "what": [
+      "Designed and modelled a bottle twisting mechanism (Twister) in SOLIDWORKS to study product orientation in conveyor and packaging systems.",
+      "Created the geometry using multiple cross-sections and guide curves to generate a gradual 90° twisting path.",
+      "Performed motion analysis to understand how a bottle interacts with the guide structure while travelling through the system.",
+      "Assigned 1060 Aluminium Alloy to the twister and Acrylic to the bottle for material and contact analysis."
+    ],
+
+    "how": [
+      "Created a series of sketches on offset planes representing the bottle profile at different rotational positions.",
+      "Generated the twisting guide structure by connecting the profiles and constructing the supporting framework.",
+      "Built the assembly in SOLIDWORKS and defined material properties for all components.",
+      "Conducted motion studies to analyse bottle movement through the twister and evaluate the effect of contact and friction."
+    ],
+
+    "why": [
+      "To understand how products can be reoriented automatically without manual handling in industrial conveyor systems.",
+      "To gain practical experience in CAD modelling, motion simulation, material selection, and contact analysis.",
+      "To develop knowledge of the design considerations involved in packaging, manufacturing, and material handling equipment.",
+      "To explore how friction, contact forces, and guide geometry influence product movement and orientation."
+    ]
+  }
+}

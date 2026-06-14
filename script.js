@@ -486,3 +486,211 @@ if(mobileHeroCvBtn){
   });
 
 }
+
+let projectData = {};
+
+fetch('assets/projects/project-data.json')
+  .then(res => res.json())
+  .then(data => {
+    projectData = data;
+  })
+  .catch(err => console.error('Could not load project data:', err));
+
+const modal       = document.getElementById('projectModal');
+const modalOverlay= document.getElementById('modalOverlay');
+const modalStage  = document.getElementById('modalStage');
+const modalDots   = document.getElementById('modalDots');
+const modalCounter= document.getElementById('modalCounter');
+const modalPdf    = document.getElementById('modalPdf');
+
+const VIDEO_EXT = ['mp4', 'webm', 'ogg', 'ogv', 'mov', 'm4v'];
+
+function isVideo(src){
+  const clean = (src || '').split('?')[0].split('#')[0];
+  const ext = clean.split('.').pop().toLowerCase();
+  return VIDEO_EXT.includes(ext);
+}
+
+let currentMedia = [];
+let currentIndex = 0;
+
+document.querySelectorAll('.project-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const project = link.dataset.project;
+    if(project) openProject(project);
+  });
+});
+
+function openProject(id){
+
+  const project = projectData[id];
+  if(!project) return;
+
+  document.getElementById('modalTitle').textContent = project.title || '';
+
+  const tagEl = document.getElementById('modalTag');
+  if(tagEl){
+    tagEl.textContent = project.tag || '';
+    tagEl.style.display = project.tag ? '' : 'none';
+  }
+
+  // Support both the new "media" array and the legacy "images" array
+  currentMedia = project.media || project.images || [];
+  currentIndex = 0;
+
+  renderMedia(currentIndex);
+  buildDots();
+
+  populateList('whatList', project.what);
+  populateList('howList',  project.how);
+  populateList('whyList',  project.why);
+
+  if(project.pdf){
+    modalPdf.href = project.pdf;
+    modalPdf.style.display = '';
+  } else {
+    modalPdf.removeAttribute('href');
+    modalPdf.style.display = 'none';
+  }
+
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function pauseStageVideo(){
+  const vid = modalStage.querySelector('video');
+  if(vid){
+    vid.pause();
+  }
+}
+
+function renderMedia(index){
+
+  pauseStageVideo();
+  modalStage.innerHTML = '';
+
+  const src = currentMedia[index];
+  if(!src){
+    return;
+  }
+
+  if(isVideo(src)){
+    const video = document.createElement('video');
+    video.src = src;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.className = 'modal-video';
+    modalStage.appendChild(video);
+  } else {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = document.getElementById('modalTitle').textContent;
+    img.className = 'modal-image';
+    modalStage.appendChild(img);
+  }
+
+  updateMediaBar();
+}
+
+function updateMediaBar(){
+
+  const total = currentMedia.length;
+
+  if(modalCounter){
+    modalCounter.textContent = total ? (currentIndex + 1) + ' / ' + total : '';
+  }
+
+  const single = total <= 1;
+  document.getElementById('prevImage').style.display = single ? 'none' : '';
+  document.getElementById('nextImage').style.display = single ? 'none' : '';
+  if(modalDots) modalDots.style.display = single ? 'none' : '';
+
+  if(modalDots){
+    modalDots.querySelectorAll('.modal-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+}
+
+function buildDots(){
+  if(!modalDots) return;
+  modalDots.innerHTML = '';
+  currentMedia.forEach((src, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'modal-dot';
+    dot.setAttribute('aria-label', 'Go to item ' + (i + 1));
+    if(isVideo(src)) dot.classList.add('is-video');
+    dot.addEventListener('click', () => goTo(i));
+    modalDots.appendChild(dot);
+  });
+}
+
+function goTo(index){
+  if(!currentMedia.length) return;
+  currentIndex = (index + currentMedia.length) % currentMedia.length;
+  renderMedia(currentIndex);
+}
+
+function populateList(id, data){
+  const list = document.getElementById(id);
+  if(!list) return;
+  list.innerHTML = '';
+  (data || []).forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+}
+
+document.getElementById('nextImage').addEventListener('click', () => goTo(currentIndex + 1));
+document.getElementById('prevImage').addEventListener('click', () => goTo(currentIndex - 1));
+
+function closeModal(){
+  pauseStageVideo();
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+if(modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+  if(!modal.classList.contains('show')) return;
+  if(e.key === 'Escape')      closeModal();
+  if(e.key === 'ArrowRight')  goTo(currentIndex + 1);
+  if(e.key === 'ArrowLeft')   goTo(currentIndex - 1);
+});
+
+/* ===== Swipe navigation for modal media (mobile) ===== */
+(function () {
+  const stage = document.getElementById('modalStage');
+  if (!stage) return;
+
+  let startX = 0, startY = 0, tracking = false;
+
+  stage.addEventListener('touchstart', (e) => {
+    // Let the video's own controls handle their own touches
+    if (e.target.closest('video')) { tracking = false; return; }
+    if (currentMedia.length <= 1) { tracking = false; return; }
+    const t = e.changedTouches[0];
+    startX = t.clientX;
+    startY = t.clientY;
+    tracking = true;
+  }, { passive: true });
+
+  stage.addEventListener('touchend', (e) => {
+    if (!tracking) return;
+    tracking = false;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    // Only treat it as a swipe if it's mostly horizontal and far enough
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      goTo(currentIndex + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+})();

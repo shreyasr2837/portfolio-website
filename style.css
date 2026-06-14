@@ -1617,6 +1617,13 @@ body.dark-mode .carousel-btn{
 
 }
 
+/* Hide carousel arrows on mobile */
+@media(max-width:850px){
+  .carousel-btn{
+    display:none;
+  }
+}
+
 /* ================= PROJECT CARD ================= */
 
 .project-card{
@@ -3054,3 +3061,522 @@ body.dark-mode .scroll-nav-btn{
   border-top: 1px solid var(--line);
   background: var(--surface);
 }
+
+/* ================= PROJECT MODAL ================= */
+
+.project-modal{
+
+  position:fixed;
+  inset:0;
+
+  display:none;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:24px;
+
+  z-index:99999;
+}
+
+.project-modal.show{
+  display:flex;
+}
+
+.modal-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:rgba(15,23,42,0.55);
+
+  backdrop-filter:blur(6px);
+
+  animation:modalFade 0.3s ease;
+}
+
+@keyframes modalFade{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+@keyframes modalRise{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.modal-content{
+
+  position:relative;
+
+  width:min(1040px,100%);
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  background:var(--surface);
+
+  border:1px solid rgba(47,84,255,0.16);
+
+  border-radius:24px;
+
+  box-shadow:var(--shadow);
+
+  padding:48px;
+
+  animation:modalRise 0.35s ease;
+}
+
+/* Accent corner lines, matching the project cards */
+
+.modal-content::before{
+
+  content:"";
+
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:1px;
+  height:32px;
+
+  background:var(--blue);
+
+  border-top-left-radius:24px;
+}
+
+.modal-content::after{
+
+  content:"";
+
+  position:absolute;
+  bottom:0;
+  right:0;
+
+  width:32px;
+  height:1px;
+
+  background:var(--blue);
+}
+
+.modal-content::-webkit-scrollbar{
+  width:8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+  background:rgba(47,84,255,0.25);
+  border-radius:999px;
+}
+
+/* ---------- CLOSE ---------- */
+
+.modal-close{
+
+  position:absolute;
+  top:22px;
+  right:22px;
+
+  width:44px;
+  height:44px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  border:1px solid rgba(47,84,255,0.14);
+
+  background:var(--surface-2);
+
+  color:var(--text);
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+
+  z-index:2;
+}
+
+.modal-close:hover{
+
+  color:var(--blue);
+
+  border-color:rgba(47,84,255,0.32);
+
+  transform:rotate(90deg);
+}
+
+/* ---------- HEAD ---------- */
+
+.modal-head{
+  margin-bottom:28px;
+  padding-right:48px;
+}
+
+.modal-tag{
+
+  display:inline-block;
+
+  font-size:12px;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  color:var(--blue);
+
+  margin-bottom:12px;
+}
+
+.modal-content h2{
+
+  font-size:34px;
+
+  line-height:1.2;
+
+  font-weight:600;
+}
+
+/* ---------- MEDIA ---------- */
+
+.modal-media{
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+
+  gap:16px;
+
+  margin-bottom:16px;
+}
+
+.modal-stage{
+
+  flex:1;
+
+  min-height:240px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--surface-2);
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  overflow:hidden;
+}
+
+.modal-image,
+.modal-video{
+
+  width:100%;
+
+  max-height:60vh;
+
+  object-fit:contain;
+
+  display:block;
+
+  border-radius:18px;
+}
+
+.modal-video{
+  background:#000;
+}
+
+.modal-nav{
+
+  flex-shrink:0;
+
+  width:52px;
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  border:1px solid rgba(47,84,255,0.14);
+
+  background:var(--surface);
+
+  color:var(--blue);
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+}
+
+.modal-nav:hover{
+
+  transform:translateY(-3px);
+
+  border-color:rgba(47,84,255,0.32);
+
+  box-shadow:var(--shadow);
+}
+
+/* ---------- MEDIA BAR (dots + counter) ---------- */
+
+.modal-media-bar{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:16px;
+
+  margin-bottom:38px;
+
+  min-height:14px;
+}
+
+.modal-dots{
+
+  display:flex;
+
+  gap:8px;
+}
+
+.modal-dot{
+
+  width:9px;
+  height:9px;
+
+  padding:0;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:rgba(47,84,255,0.22);
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+}
+
+.modal-dot:hover{
+  background:rgba(47,84,255,0.5);
+}
+
+.modal-dot.active{
+
+  width:24px;
+
+  border-radius:999px;
+
+  background:var(--blue);
+}
+
+/* A small ring marks dots that point to a video */
+
+.modal-dot.is-video{
+  box-shadow:0 0 0 2px var(--surface), 0 0 0 3px rgba(47,84,255,0.4);
+}
+
+.modal-counter{
+
+  font-size:13px;
+
+  color:var(--text-soft);
+
+  letter-spacing:1px;
+
+  white-space:nowrap;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.modal-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:22px;
+
+  margin-bottom:36px;
+}
+
+.modal-section{
+
+  background:var(--surface-2);
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:24px;
+}
+
+.modal-section-head{
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  margin-bottom:16px;
+}
+
+.modal-ic{
+
+  width:34px;
+  height:34px;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+
+  background:rgba(47,84,255,0.1);
+
+  color:var(--blue);
+}
+
+.modal-section-head h3{
+
+  font-size:17px;
+
+  font-weight:600;
+
+  letter-spacing:0.5px;
+}
+
+.modal-section ul{
+
+  list-style:none;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.modal-section li{
+
+  position:relative;
+
+  padding-left:20px;
+
+  font-size:15px;
+
+  line-height:1.5;
+
+  color:var(--text-soft);
+}
+
+.modal-section li::before{
+
+  content:"";
+
+  position:absolute;
+  left:0;
+  top:9px;
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--blue);
+}
+
+/* ---------- PDF BUTTON ---------- */
+
+.modal-pdf{
+
+  display:inline-flex;
+  align-items:center;
+
+  gap:10px;
+
+  padding:14px 24px;
+
+  border-radius:999px;
+
+  background:var(--blue);
+
+  color:#ffffff;
+
+  font-size:15px;
+  font-weight:500;
+
+  text-decoration:none;
+
+  transition:0.25s ease;
+}
+
+.modal-pdf:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:0 12px 30px rgba(47,84,255,0.3);
+}
+
+.modal-pdf span{
+  white-space:nowrap;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:820px){
+
+  .modal-grid{
+    grid-template-columns:1fr;
+  }
+
+  .modal-content{
+    padding:32px 22px;
+  }
+
+  .modal-content h2{
+    font-size:26px;
+  }
+
+  .modal-nav{
+    width:44px;
+    height:44px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  .modal-overlay,
+  .modal-content{
+    animation:none;
+  }
+
+  .modal-close:hover{
+    transform:none;
+  }
+
+  .modal-nav:hover,
+  .modal-pdf:hover{
+    transform:none;
+  }
+}
+
+.mail-btn{
+  display:flex;
+  margin-top:18px;
+}
+
+/* Hide modal arrows on mobile (use the dots to navigate) */
+@media(max-width:850px){
+  .modal-nav{
+    display:none;
+  }
+}
+
