@@ -32,36 +32,29 @@
     ]
   },
 
-  "conveyor-system": {
-    "title": "Belt Conveyor System Design",
-    "tag": "Engineering Project",
-
+"conveyor-system": {
+    "title": "Bottle Twister Mechanism",
+    "tag": "SOLIDWORKS · Motion Study",
     "media": [
       "assets/projects/conveyor-system/1.jpg",
       "assets/projects/conveyor-system/2.jpg",
       "assets/projects/conveyor-system/3.jpg",
       "assets/projects/conveyor-system/4.mp4"
     ],
-
     "what": [
-      "Designed and modelled a bottle twisting mechanism (Twister) in SOLIDWORKS to study product orientation in conveyor and packaging systems.",
-      "Created the geometry using multiple cross-sections and guide curves to generate a gradual 90° twisting path.",
-      "Performed motion analysis to understand how a bottle interacts with the guide structure while travelling through the system.",
-      "Assigned 1060 Aluminium Alloy to the twister and Acrylic to the bottle for material and contact analysis."
+      "Modelled a 'twister' that reorients bottles on a packaging line",
+      "Built the twisted guide by lofting through progressive cross-sections",
+      "Ran a motion study of a bottle travelling through the guide"
     ],
-
     "how": [
-      "Created a series of sketches on offset planes representing the bottle profile at different rotational positions.",
-      "Generated the twisting guide structure by connecting the profiles and constructing the supporting framework.",
-      "Built the assembly in SOLIDWORKS and defined material properties for all components.",
-      "Conducted motion studies to analyse bottle movement through the twister and evaluate the effect of contact and friction."
+      "Modelled the full geometry in SOLIDWORKS",
+      "Assigned 1060 aluminium to the twister and acrylic to the bottle",
+      "Set up contact, friction and motion constraints"
     ],
-
     "why": [
-      "To understand how products can be reoriented automatically without manual handling in industrial conveyor systems.",
-      "To gain practical experience in CAD modelling, motion simulation, material selection, and contact analysis.",
-      "To develop knowledge of the design considerations involved in packaging, manufacturing, and material handling equipment.",
-      "To explore how friction, contact forces, and guide geometry influence product movement and orientation."
+      "Reorients products automatically, with no manual handling",
+      "Showed how friction and guide geometry drive the motion",
+      "Validates the design ahead of building a full conveyor"
     ]
   },
 
@@ -74,7 +67,7 @@
       "assets/projects/laser-housing/3.jpg",
       "assets/projects/laser-housing/4.jpg"
     ],
-    "pdf": "assets/projects/laser-housing/report.pdf",
+
     "what": [
       "Assessed steady-state thermal performance of a finned laser housing",
       "Modelled conjugate heat transfer across water, helium, air and aluminium",
@@ -90,7 +83,123 @@
       "Cut required air velocity and water flow by about 50%",
       "Showed simulation can size the cooling without overdesign"
     ]
-  }
+  },
+
+"thrust-vector-control": {
+    "title": "Thrust Vector Control for Model Rockets",
+    "tag": "MSc · Additive Mfg",
+    "media": [
+      "assets/projects/thrust-vector-control/1.jpg",
+      "assets/projects/thrust-vector-control/2.jpg",
+      "assets/projects/thrust-vector-control/3.jpg",
+      "assets/projects/thrust-vector-control/4.jpg"
+    ],
+    
+    "what": [
+      "Designed a thrust vector control (TVC) system for model rockets",
+      "Replaced fin stabilisation with a twin-servo gimballed nozzle",
+      "Five printed parts: motor sleeve, inner and outer gimbals, two linkages"
+    ],
+    "how": [
+      "Designed for metal AM in Ti-6Al-4V with lattice and spiral features",
+      "Optimised part orientation to cut supports and post-processing",
+      "Validated each part with SolidWorks static FEA at 12.1 N thrust"
+    ],
+    "why": [
+      "Kept the assembly light (about 104.5 g) using hollow and lattice structures",
+      "Gimbal gives plus-minus 15 degrees of thrust control versus fixed fins",
+      "Showed metal AM is viable for small aerospace components"
+    ]
+  },
+
+"braking-system-reliability": {
+    "title": "Car Braking System Reliability",
+    "tag": "MSc · Reliability Eng",
+    "media": [
+      "assets/projects/braking-system-reliability/1.jpg",
+      "assets/projects/braking-system-reliability/2.jpg",
+      "assets/projects/braking-system-reliability/3.jpg",
+      "assets/projects/braking-system-reliability/4.jpg"
+    ],
+    
+    "what": [
+      "Analysed the reliability of a car disc-braking system",
+      "Mapped failure modes across rotor, pads, caliper, shims and fluid",
+      "Proposed an improved Al-MMC disc rotor design"
+    ],
+    "how": [
+      "Applied QFD, HAZOP, FMEA, FTA and block-diagram analysis",
+      "Quantified system reliability and load-strength safety margins",
+      "Benchmarked materials and added redundancy to the weak parts"
+    ],
+    "why": [
+      "Raised modelled system reliability from about 0.40 to 0.70",
+      "Lifted the stress-strength safety margin from 1.24 to 4.64",
+      "Pinpointed the highest-risk failure modes to prioritise"
+    ]
+  },
+
+"mesh-sensitivity": {
+  "title": "Mesh Sensitivity Study \u2014 Conjugate Heat Transfer",
+  "tag": "MSc Coursework",
+
+  "media": [
+    "assets/projects/mesh-sensitivity/1.png",
+    "assets/projects/mesh-sensitivity/2.png",
+    "assets/projects/mesh-sensitivity/3.png",
+    "assets/projects/mesh-sensitivity/4.png",
+    "assets/projects/mesh-sensitivity/5.png"
+  ],
+
+  "what": [
+    "Ran a five-mesh sensitivity study on a heated copper block in air",
+    "Verified the peak temperature became mesh-independent",
+    "Extended the analysis to a transient convection case"
+  ],
+
+  "how": [
+    "Built structured all-quad meshes with the sweep method",
+    "Refined with edge sizing and biasing near the solid\u2013fluid interface",
+    "Solved steady conduction and transient convection in Ansys Fluent"
+  ],
+
+  "why": [
+    "Confirm results don't depend on mesh density",
+    "Keep the element count efficient (under 100k)",
+    "Establish a trustworthy baseline for thermal design"
+  ]
+},
+
+"sun-tracking-harvester": {
+  "title": "Sun-Tracking Energy Harvester",
+  "tag": "MSc · Design Project",
+
+  "media": [
+    "assets/projects/sun-tracking-harvester/1.png",
+    "assets/projects/sun-tracking-harvester/2.png",
+    "assets/projects/sun-tracking-harvester/3.png",
+    "assets/projects/sun-tracking-harvester/4.png",
+    "assets/projects/sun-tracking-harvester/5.png"
+  ],
+
+  "what": [
+    "Designed a dual-axis sun-tracking solar harvester for the Mojave Desert",
+    "Folding origami panel array on a concrete-free tripod frame",
+    "Benchmarked against the Ivanpah solar plant"
+  ],
+
+  "how": [
+    "Modelled the assembly and folding mechanism in CAD",
+    "Ran steady-state thermal FEA in Ansys to find panel hotspots",
+    "Sized motors, wind loads and a cradle-to-grave LCA"
+  ],
+
+  "why": [
+    "Cut land use by ~95% versus Ivanpah for equal output",
+    "Improve energy capture with dual-axis tracking",
+    "Lower lifecycle emissions with a concrete-free foundation"
+  ]
+}
 
 }
 
