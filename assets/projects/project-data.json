@@ -63,5 +63,34 @@
       "To develop knowledge of the design considerations involved in packaging, manufacturing, and material handling equipment.",
       "To explore how friction, contact forces, and guide geometry influence product movement and orientation."
     ]
+  },
+
+  "laser-housing": {
+    "title": "Laser Housing Thermal Optimisation",
+    "tag": "MSc · Ansys Fluent",
+    "media": [
+      "assets/projects/laser-housing/1.jpg",
+      "assets/projects/laser-housing/2.jpg",
+      "assets/projects/laser-housing/3.jpg",
+      "assets/projects/laser-housing/4.jpg"
+    ],
+    "pdf": "assets/projects/laser-housing/report.pdf",
+    "what": [
+      "Assessed steady-state thermal performance of a finned laser housing",
+      "Modelled conjugate heat transfer across water, helium, air and aluminium",
+      "Targeted 523 K helium with water and aluminium kept within limits"
+    ],
+    "how": [
+      "Built a quarter-symmetry CFD model in ANSYS Fluent",
+      "Ran a mesh independence study (under 1% variation)",
+      "Optimised inputs with ANSYS DesignXplorer (DOE + response surface)"
+    ],
+    "why": [
+      "Met every temperature target after optimisation",
+      "Cut required air velocity and water flow by about 50%",
+      "Showed simulation can size the cooling without overdesign"
+    ]
   }
+
 }
+
